@@ -1,14 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Pages</h1>
+<h1 class="text-center mb-5">Pages</h1>
 
-<div id="pages">
+<div class="border border-secondary p-5">
   <% @pages.each do |page| %>
     <%= render page %>
     <p>
-      <%= link_to "Show this page", page %>
+      <%= link_to "Show", page %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "New page", new_page_path %>

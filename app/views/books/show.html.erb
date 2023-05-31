@@ -2,9 +2,8 @@
 
 <%= render @book %>
 
-<div>
-  <%= link_to "Edit this book", edit_book_path(@book) %> |
-  <%= link_to "Back to books", books_path %>
-
-  <%= button_to "Destroy this book", @book, method: :delete %>
+<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+  <%= link_to "Edit", edit_book_path(@book), class: 'btn btn-sm btn-warning' %>
+  <%= link_to "Back", root_path, class: 'btn btn-sm btn-secondary' %>
+  <%= button_to "Destroy", @book, method: :delete, class: 'btn btn-sm btn-danger' %>
 </div>

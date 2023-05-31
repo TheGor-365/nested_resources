@@ -1,14 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Books</h1>
+<h1 class="text-center mb-5">Books</h1>
 
-<div id="books">
+<div class="border border-secondary p-5">
   <% @books.each do |book| %>
     <%= render book %>
     <p>
-      <%= link_to "Show this book", book %>
+      <%= link_to "Show", book %>
     </p>
   <% end %>
 </div>
-
-<%= link_to "New book", new_book_path %>
