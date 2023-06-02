@@ -10,6 +10,14 @@ Rails.application.routes.draw do
   scope module: :web do
     resources :books, except: %i[index] do
       resources :pages, only: %i[index new create]
+
+      collection do
+        post :publish
+      end
+
+      member do
+        post :publish
+      end
     end
 
     resources :books, except: %i[index], shallow: true do
