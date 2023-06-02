@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "books#index"
+  root "web/books#index"
 
   # resources :books
   #
@@ -7,11 +7,13 @@ Rails.application.routes.draw do
   #   resources :pages
   # end
 
-  resources :books, except: [:index] do
-    resources :pages, only: [:index, :new, :create]
-  end
+  scope module: :web do
+    resources :books, except: %i[index] do
+      resources :pages, only: %i[index new create]
+    end
 
-  resources :books, except: [:index], shallow: true do
-    resources :pages, only: [:show, :edit, :update, :destroy]
+    resources :books, except: %i[index], shallow: true do
+      resources :pages, only: %i[show edit update destroy]
+    end
   end
 end
