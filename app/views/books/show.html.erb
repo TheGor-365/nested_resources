@@ -2,8 +2,28 @@
 
 <%= render @book %>
 
+<table class="table table-bordered my-5">
+  <thead>
+    <tr class="text-center">
+      <th colspan="4" class="bg-light py-3">Read</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @book.pages.each_with_index do |page, index| %>
+      <tr>
+        <td class="p-5 bg-light text-muted"><strong><%= "Page-#{(index + 1).to_s}" %></strong></td>
+        <td class="p-5"><%= page.body %></td>
+        <td class="py-5 bg-light"><%= link_to "Edit", edit_page_path(page), class: 'btn btn-sm btn-warning' %></td>
+        <td class="py-5 bg-light"><%= button_to "Destroy", @page, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
   <%= link_to "Edit", edit_book_path(@book), class: 'btn btn-sm btn-warning' %>
   <%= link_to "Back", root_path, class: 'btn btn-sm btn-secondary' %>
   <%= button_to "Destroy", @book, method: :delete, class: 'btn btn-sm btn-danger' %>
+  <%= link_to "Add new page", new_book_page_path(@book), class: 'btn btn-sm btn-success' %>
 </div>

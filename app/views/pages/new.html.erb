@@ -1,9 +1,11 @@
+<%# @book = Book.find(params[:book_id]) %>
 <h1>New page</h1>
 
-<%= render "form", page: @page %>
+<%= render "form", page: @page, url: book_pages_path(@book) %>
 
 <br>
 
-<div>
-  <%= link_to "Back", pages_path %>
+<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+  <%= link_to "Back to book", book_path(@book), class: 'btn btn-sm btn-secondary' %>
+  <%= link_to "Book pages", book_pages_path(@book), class: 'btn btn-sm btn-primary' %>
 </div>

@@ -1,3 +1,4 @@
+<%# @book = Book.find(params[:book_id]) %>
 <p style="color: green"><%= notice %></p>
 
 <h1 class="text-center mb-5">Pages</h1>
@@ -10,3 +11,5 @@
     </p>
   <% end %>
 </div>
+
+<%= link_to 'New page', new_book_page_path(@book) %>

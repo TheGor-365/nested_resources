@@ -1,10 +1,10 @@
 <h1>Editing page</h1>
 
-<%= render "form", page: @page %>
+<%= render "form", page: @page, url: edit_page_path(@page) %>
 
 <br>
 
 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
   <%= link_to "Show", @page, class: 'btn btn-sm btn-primary' %>
-  <%= link_to "Back", pages_path, class: 'btn btn-sm btn-secondary' %>
+  <%= link_to "Back", book_path(@page.book), class: 'btn btn-sm btn-secondary' %>
 </div>
